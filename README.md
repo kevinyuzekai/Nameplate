@@ -67,16 +67,16 @@ const CONFIG = {
 ### 1.3 学生对象字段
 `defaultStudents()`（行2209-2259）每项含 6 字段：
 ```js
-{ name:'陈钰泽', gender:'男', idCard:'330127201202250036', weight:10, selectedCount:0, id:'s1' }
+{ name:'张三', gender:'男', idCard:'', weight:10, selectedCount:0, id:'s1' }
 ```
 - `name` 汉字姓名（可含数字/字母，见第5节校验）。
 - `gender` `'男'/'女'`，新建默认 `'未知'`。
 - `idCard` 18 位身份证（部分为假号如 `000000201203130000`；birthday 功能从中截取月日）。
-- `weight` 权重（默认数组内为 10，但 `余泽楷` 为 9.9，行2229——**init 时会被覆盖成 10**）。
+- `weight` 权重（默认数组内为 10，但 `李四` 为 9.9，行2229——**init 时会被覆盖成 10**）。
 - `selectedCount` 被抽中累计次数。
 - `id` 稳定标识；默认名单为 `s1..s49`，新增用 `genId()`（行3053）：`'s'+Date.now()+'_'+Math.random().toString(36).substr(2,9)`。
 
-默认名单共 **49 人**：男 24（s1-s24），女 24（s25-s48），徐千城俊(s49)男。姓名清单与 RANKING_WEIGHTS 键一致。默认全部 weight=10、selectedCount=0。
+默认名单共 **49 人**：男 24（s1-s24），女 24（s25-s48），徐**俊(s49)男。姓名清单与 RANKING_WEIGHTS 键一致。默认全部 weight=10、selectedCount=0。
 
 ### 1.4 权重的单位/含义（重点，含“与10%的关系”）
 代码对 weight 有两套并存尺度，重实现需原样保留：
